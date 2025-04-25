@@ -19,6 +19,7 @@ $stmt1 = $con->prepare("
     FROM asignaciones a
     INNER JOIN usuarios u ON a.id_empleado = u.id
     WHERE u.nit = ?
+    AND a.fecha_devolucion IS NULL
 ");
 $stmt1->execute([$nit_empresa]);
 $total_dispositivos = $stmt1->fetch(PDO::FETCH_ASSOC)['total_dispositivos'];
